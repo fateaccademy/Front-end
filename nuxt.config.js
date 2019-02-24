@@ -1,65 +1,39 @@
-const pkg = require('./package')
-
-
 module.exports = {
-  mode: 'spa',
-
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'testnuxt',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
   /*
-  ** Customize the progress-bar color
+  ** Customize the progress bar color
   */
-  loading: { color: '#fff' },
-
-  /*
-  ** Global CSS
-  */
-  css: [
-  ],
-
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
-
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
-  ],
-
+  loading: { color: '#3B8070' },
   /*
   ** Build configuration
   */
   build: {
-    postcss: {
-      preset: {
-        features: {
-          customProperties: false
-        }
-      }
-    },
     /*
-    ** You can extend webpack config here
+    ** Run ESLint on save
     */
-    extend(config, ctx) {
-      
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
     }
   }
 }
+
