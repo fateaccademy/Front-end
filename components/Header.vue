@@ -36,5 +36,10 @@
 
   header a{
     color: wheat;
+    transition: 1s;
+  }
+
+  header a.active,header a:hover{
+    color: red;
   }
 </style>
