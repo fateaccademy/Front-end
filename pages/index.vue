@@ -6,10 +6,10 @@
       <h1>Posts</h1>
     </div>
     <div class="posts">
-      <nuxt-link :to="'/posts/'+post.id" class="post" v-for="post in posts" :key="post.id">
-        <div class="bg" :style="{ background: 'url('+post.img+')'}"></div>
-        <p>{{post.title}}</p>
-      </nuxt-link>
+      <Post v-for="post in posts"
+            :key="post.id"
+            :post="post"
+      />
     </div>
 
 
@@ -19,8 +19,11 @@
 
 <script>
 import Header from "../components/Header";
+import Post from "../components/Post";
+
 export default {
   components: {
+    Post,
     Header
   },
   data(){
@@ -43,30 +46,6 @@ export default {
     flex-wrap: wrap;
   }
 
-  .post{
-    border: 1px solid;
-    width: 30%;
-    height: 30vh;
-    margin: 10px 0;
-  }
-  .post .bg{
-    background-position: center!important;
-    background-size: cover!important;
-    background-repeat: no-repeat!important;
-    width: 100%;
-    height: 100%;
-  }
-  
-  @media (max-width: 786px) {
-    .post{
-      width: 45%;
-    }
-  }
 
-  @media (max-width: 375px) {
-    .post{
-      width:100%;
-    }
-  }
 </style>
 
