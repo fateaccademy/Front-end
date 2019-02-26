@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="'/posts/'+post.id" class="post">
     <div class="bg" :style="{ backgroundImage: 'url('+post.img+')'}"></div>
-    <p>{{post.title}}</p>
+    <p> {{post.title}}</p>
   </nuxt-link>
 </template>
 
