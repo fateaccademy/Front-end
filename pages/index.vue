@@ -1,17 +1,14 @@
 <template>
   <section class="container">
-    <nuxt-link to="/users">
-      users
-    </nuxt-link>
+   <Header/>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
+import Header from "../components/Header";
 export default {
   components: {
-    AppLogo
+    Header
   }
 }
 </script>
